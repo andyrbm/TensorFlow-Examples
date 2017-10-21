@@ -48,11 +48,11 @@ def neural_net(x_dict):
     layer_4 = tf.layers.dense(layer_3, n_hidden_1)
     layer_5 = tf.layers.dense(layer_4, n_hidden_1)
     layer_6 = tf.layers.dense(layer_5, n_hidden_1)
-    layer_7 = tf.layers.dense(layer_6, n_hidden_1)
+    #layer_7 = tf.layers.dense(layer_6, n_hidden_1)
     
     
     # Output fully connected layer with a neuron for each class
-    out_layer = tf.layers.dense(layer_7, num_classes)
+    out_layer = tf.layers.dense(layer_6, num_classes)
     
     return out_layer
 
