@@ -29,7 +29,8 @@ batch_size = 128
 display_step = 100
 
 # Network Parameters
-n_hidden_1 = 50 # 1st layer number of neurons
+n_hidden_1 = 256 # 1st layer number of neurons
+n_hidden_2 = 256 # 2nd layer number of neurons
 num_input = 784 # MNIST data input (img shape: 28*28)
 num_classes = 10 # MNIST total classes (0-9 digits)
 
@@ -41,8 +42,8 @@ def neural_net(x_dict):
     # Hidden fully connected layer with 256 neurons
     layer_1 = tf.layers.dense(x, n_hidden_1)
     # Hidden fully connected layer with 256 neurons
-    layer_2 = tf.layers.dense(layer_1, n_hidden_1)
-    
+    layer_2 = tf.layers.dense(layer_1, n_hidden_2)
+    # Output fully connected layer with a neuron for each class
     layer_3 = tf.layers.dense(layer_2, n_hidden_1)
     layer_4 = tf.layers.dense(layer_3, n_hidden_1)
     layer_5 = tf.layers.dense(layer_4, n_hidden_1)
@@ -52,6 +53,7 @@ def neural_net(x_dict):
     
     # Output fully connected layer with a neuron for each class
     out_layer = tf.layers.dense(layer_7, num_classes)
+    
     return out_layer
 
 
